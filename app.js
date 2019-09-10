@@ -24,6 +24,11 @@ const server = http.createServer( async (req, res)=> {
     res.write(JSON.stringify(guests));
     res.end();
   }
+  else if(req.url === '/'){
+    const html = await readFile('./index.html');
+    res.write(html);
+    res.end();
+  }
 });
 
 server.listen(3000);
